@@ -5,21 +5,21 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 /**
- * @version 1.00
- * @Description:
+ * @Description
  * @Author rsbdcsn
  * @Date 2019/9/3 15:16
+ * @Versuin 1.00
  */
 @Mapper
 @Repository
 public interface UserMapper {
 
-    User insertUserByUser(User user);
+    int insertUserByUser(User user);
 
     int deteleUserByUserId(int userId);
 
     int updateUserByUser(User user);
 
-    int selectUserByUserId(int userId);
+    User selectUserByUserId(int userId);
 
 }

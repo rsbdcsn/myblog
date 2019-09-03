@@ -5,10 +5,10 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * @version 1.00
- * @Description:
+ * @Description
  * @Author rsbdcsn
  * @Date 2019/9/3 14:24
+ * @Versuin 1.00
  */
 @Data
 public class Article extends BaseBean{

@@ -1,15 +1,16 @@
 package com.rsbdcsn.myblog.service;
 
 import com.rsbdcsn.myblog.bean.User;
+import com.rsbdcsn.myblog.common.R;
 import com.rsbdcsn.myblog.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @version 1.00
- * @Description:
+ * @Description
  * @Author rsbdcsn
  * @Date 2019/9/3 16:23
+ * @Versuin 1.00
  */
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,12 +19,12 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public User CreateUserByUser(User user) {
-        User resultUser = userMapper.insertUserByUser(user);
-        return resultUser;
+    public R CreateUserByUser(User user) {
+        int result = userMapper.insertUserByUser(user);
+        return R.ok().data(result);
     }
 
-    @Override
+/*    @Override
     public int removeUserByUserId(int userId) {
         int result = userMapper.deteleUserByUserId(userId);
         return result;
@@ -39,5 +40,5 @@ public class UserServiceImpl implements UserService {
     public int queryUserByUserId(int userId) {
         int result = userMapper.selectUserByUserId(userId);
         return result;
-    }
+    }*/
 }

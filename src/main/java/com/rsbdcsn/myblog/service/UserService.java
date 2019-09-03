@@ -1,21 +1,22 @@
 package com.rsbdcsn.myblog.service;
 
 import com.rsbdcsn.myblog.bean.User;
+import com.rsbdcsn.myblog.common.R;
 
 /**
- * @version 1.00
- * @Description:
+ * @Description
  * @Author rsbdcsn
  * @Date 2019/9/3 15:32
+ * @Versuin 1.00
  */
 public interface UserService {
 
-    User CreateUserByUser(User user);
+    R CreateUserByUser(User user);
 
-    int removeUserByUserId(int userId);
+/*    int removeUserByUserId(int userId);
 
     int alterUserByUser(User user);
 
-    int queryUserByUserId(int userId);
+    int queryUserByUserId(int userId);*/
 
 }
