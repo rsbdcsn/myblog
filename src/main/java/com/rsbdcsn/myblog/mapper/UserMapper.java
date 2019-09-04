@@ -2,7 +2,7 @@ package com.rsbdcsn.myblog.mapper;
 
 import com.rsbdcsn.myblog.bean.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Description
@@ -11,15 +11,12 @@ import org.springframework.stereotype.Repository;
  * @Versuin 1.00
  */
 @Mapper
-@Repository
 public interface UserMapper {
 
     int insertUserByUser(User user);
 
-    int deteleUserByUserId(int userId);
+    int deteleUserByUserId(@Param("userId") int userId);
 
-    int updateUserByUser(User user);
-
-    User selectUserByUserId(int userId);
+    User selectUserByUserId(@Param("userId") int userId);
 
 }

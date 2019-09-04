@@ -13,10 +13,10 @@ public interface UserService {
 
     R CreateUserByUser(User user);
 
-/*    int removeUserByUserId(int userId);
+    R removeUserByUserId(int userId);
 
-    int alterUserByUser(User user);
+    R alterUserByUser(User user);
 
-    int queryUserByUserId(int userId);*/
+    R queryUserByUserId(int userId);
 
 }

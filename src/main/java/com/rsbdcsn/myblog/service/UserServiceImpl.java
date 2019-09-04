@@ -3,8 +3,9 @@ package com.rsbdcsn.myblog.service;
 import com.rsbdcsn.myblog.bean.User;
 import com.rsbdcsn.myblog.common.R;
 import com.rsbdcsn.myblog.mapper.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @Description
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     UserMapper userMapper;
 
     @Override
@@ -24,21 +25,29 @@ public class UserServiceImpl implements UserService {
         return R.ok().data(result);
     }
 
-/*    @Override
-    public int removeUserByUserId(int userId) {
-        int result = userMapper.deteleUserByUserId(userId);
-        return result;
+     @Override
+    public R removeUserByUserId(int userId) {
+         int result = userMapper.deteleUserByUserId(userId);
+         return R.ok().data(result);
     }
 
     @Override
-    public int alterUserByUser(User user) {
-        int result = userMapper.updateUserByUser(user);
-        return result;
+    public R alterUserByUser(User user) {
+        int deleteRusult = userMapper.deteleUserByUserId(user.getUserId());
+        int alterResult = 0;
+        if(deleteRusult == 1){
+            alterResult = userMapper.insertUserByUser(user);
+        }
+        if(alterResult == 1){
+            return R.ok().data(alterResult);
+        }else{
+            return R.error().data(alterResult);
+        }
     }
 
     @Override
-    public int queryUserByUserId(int userId) {
-        int result = userMapper.selectUserByUserId(userId);
-        return result;
-    }*/
+    public R queryUserByUserId(int userId) {
+        User user = userMapper.selectUserByUserId(userId);
+        return R.ok().data(user);
+    }
 }

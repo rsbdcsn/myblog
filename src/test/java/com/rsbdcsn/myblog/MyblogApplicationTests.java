@@ -1,6 +1,5 @@
 package com.rsbdcsn.myblog;
 
-import com.rsbdcsn.myblog.bean.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +11,7 @@ public class MyblogApplicationTests {
 
     @Test
     public void contextLoads() {
+
     }
 
 }

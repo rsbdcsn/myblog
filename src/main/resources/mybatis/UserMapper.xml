@@ -4,25 +4,36 @@
 <mapper namespace="com.rsbdcsn.myblog.mapper.UserMapper">
 
     <resultMap id="userAllMap" type="com.rsbdcsn.myblog.bean.User">
-        <id column="USER_ID" property="userId" jdbcType="INTEGER"></id>
-        <result column="USER_IP" property="userIp" jdbcType="VARCHAR"></result>
-        <result column="USER_NAME" property="userName" jdbcType="VARCHAR"></result>
-        <result column="USER_PASSWORD" property="userPassword" jdbcType="VARCHAR"></result>
-        <result column="USER_NICKNAME" property="userNickname" jdbcType="VARCHAR"></result>
-        <result column="USER_IMAGE" property="userImage" jdbcType="VARCHAR"></result>
-        <result column="USER_EMAIL" property="userEmail" jdbcType="VARCHAR"></result>
-        <result column="USER_QQ" property="userQq" jdbcType="VARCHAR"></result>
-        <result column="USER_TELEPHONE_NUMBER" property="userTelephoneNumber" jdbcType="VARCHAR"></result>
-        <result column="USER_REGISTRATION_TIME" property="userRegistrationTime" jdbcType="DATETIME"></result>
-        <result column="USER_STATUS" property="userStatus" jdbcType="CHAR"></result>
-        <result column="REVISION" property="revision" jdbcType="INTEGRE"></result>
-        <result column="CREATED_BY" property="createdBy" jdbcType="VARCHAR"></result>
-        <result column="CREATED_TIME" property="createTime" jdbcType="DATETIME"></result>
-        <result column="UPDATED_BY" property="updatedBy" jdbcType="VARCHAR"></result>
-        <result column="UPDATED_TIME" property="updatedTime" jdbcType="DATETIME"></result>
+        <id column="USER_ID" property="userId" ></id>
+        <result column="USER_IP" property="userIp" ></result>
+        <result column="USER_NAME" property="userName" ></result>
+        <result column="USER_PASSWORD" property="userPassword" ></result>
+        <result column="USER_NICKNAME" property="userNickname" ></result>
+        <result column="USER_IMAGE" property="userImage" ></result>
+        <result column="USER_EMAIL" property="userEmail" ></result>
+        <result column="USER_QQ" property="userQq" ></result>
+        <result column="USER_TELEPHONE_NUMBER" property="userTelephoneNumber" ></result>
+        <result column="USER_REGISTRATION_TIME" property="userRegistrationTime" ></result>
+        <result column="USER_STATUS" property="userStatus" ></result>
+        <result column="REVISION" property="revision" ></result>
+        <result column="CREATED_BY" property="createdBy" ></result>
+        <result column="CREATED_TIME" property="createTime" ></result>
+        <result column="UPDATED_BY" property="updatedBy" ></result>
+        <result column="UPDATED_TIME" property="updatedTime" ></result>
     </resultMap>
 
-    <select id="selectUserByUserId" parameterType="INTEGER" resultMap="userAllMap">
+   <insert id="insertUserByUser" parameterType="com.rsbdcsn.myblog.bean.User" flushCache="true">
+        insert into WUD_USER(USER_ID,USER_IP,USER_NAME,USER_PASSWORD,USER_NICKNAME,USER_IMAGE,USER_EMAIL,
+                    USER_QQ,USER_TELEPHONE_NUMBER,USER_REGISTRATION_TIME,USER_STATUS,
+                    REVISION,CREATED_BY,CREATED_TIME,UPDATED_BY,UPDATED_TIME)
+        value (#{userId},#{userIp},#{userName},#{userPassword},#{userNickname},#{userImage},#{userEmail},#{userQq},#{userTelephoneNumber},#{userRegistrationTime},#{userStatus},#{revision},#{createdBy},#{createTime},#{updatedBy},#{updatedTime})
+    </insert>
+
+    <delete id="deteleUserByUserId" parameterType="java.lang.Integer">
+        delete from WUD_USER where USER_ID = #{userId}
+    </delete>
+
+    <select id="selectUserByUserId" parameterType="java.lang.Integer" resultMap="userAllMap">
         select * from WUD_USER where USER_ID = #{userId}
     </select>
 
